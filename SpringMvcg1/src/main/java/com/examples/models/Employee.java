@@ -23,7 +23,7 @@ public class Employee {
 	private String email;
 	
 	@NotEmpty
-	@Pattern(regexp="[6789][0-9] {9}")
+	@Pattern(regexp="[6789]{1}[0-9]{9}")
 	private String contactNumber;
 	
 	
