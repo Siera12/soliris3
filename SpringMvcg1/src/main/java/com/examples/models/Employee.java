@@ -15,6 +15,7 @@ public class Employee {
 	
 	@NotEmpty(message="Employee Name is required")
 	@Size(min=3,max=12)
+	
 	private String employeeName;
 	
 	@Email(message="Email should be in proper format")

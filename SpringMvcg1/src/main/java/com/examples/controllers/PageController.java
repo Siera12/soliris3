@@ -1,7 +1,10 @@
 package com.examples.controllers;
 
+
+
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,9 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.examples.models.Employee;
+import com.examples.validators.NameValidator;
 
 @Controller
 public class PageController {
+	
+	@Autowired
+	NameValidator nameValidator;
 	
 	@RequestMapping(value="/",method=RequestMethod.GET)
 	public String Welcome() {
@@ -44,7 +51,7 @@ public class PageController {
 		
 		System.out.println("Hello 1");
 		
-		//nameValidator.validate(employeeObj,result)
+		nameValidator.validate(employeeObj,result);
 		
 		
 		if(result.hasErrors()) {
